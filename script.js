@@ -6,8 +6,8 @@ const checkAllBtn = document.getElementById("check-all-btn");
 const deleteAllBtn = document.getElementById("delete-all-btn");
 
 // Function to create a new todo item
-function addTodo() {
-  const todoText = inputField.value.trim();
+function addTodo(taskText = null, completed = false) {
+  const todoText = taskText !== null ? taskText : inputField.value.trim();
 
   if (todoText !== '') {
     // Create list item
@@ -17,6 +17,9 @@ function addTodo() {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('check-btn');
+
+    // Set checkbox state if completed
+    checkbox.checked = completed;
 
     // Create task text
     const taskSpan = document.createElement('span');
@@ -81,4 +84,35 @@ checkAllBtn.addEventListener('click', () => {
 // Delete All functionality
 deleteAllBtn.addEventListener('click', () => {
   todoList.innerHTML = '';
+});
+
+// Debounce function to limit the frequency of calls
+function debounce(func, delay) {
+  let timeout;
+  return function (...args) {
+    const taskText = li.querySelector('span').textContent;
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
+const saveTodosToLocalStorage = debounce(() => {
+  const todos = [];
+  todoList.querySelectorAll('li').forEach(li => {
+    const text = li.querySelector('span').textContent;
+    const completed = li.querySelector('input[type="checkbox"]').checked;
+    todos.push({ text, completed });
+  });
+  localStorage.setItem('todos', JSON.stringify(todos));
+  saved.forEach(todo => addTodo(todo.taskText, todo.completed));
+window.addEventListener('DOMContentLoaded', () => {
+  let saved = [];
+  try {
+    saved = JSON.parse(localStorage.getItem('todos')) || [];
+  } catch (error) {
+    console.error("Error parsing todos from localStorage:", error);
+  }
+  saved.forEach(todo => addTodo(todo.text, todo.completed));
+});
+
+// Initialize the todo list from localStorage when the page loads
 });
