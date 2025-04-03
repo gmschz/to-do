@@ -1,0 +1,172 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  
+  /* Body Styling */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Main App Container */
+  .app {
+    position: relative;
+    display: flex;
+    background-color: #e6d9f1;
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: 450px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Heading */
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Input Field */
+  #todo-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #888;
+    background-color: transparent;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Add Button */
+  #add-btn {
+    background-color: #3f51b5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  /* Adjust parent container to use flexbox for alignment */
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* Removed invalid CSS declaration */
+  
+  /* Task List */
+  #todo-list {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0;
+  }
+  /* Align task text and action buttons within each task item */
+  #todo-list li {
+    background-color: #a3a8c4;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    color: #222;
+    display: flex;
+    align-items: center;
+  justify-content: space-between;
+    justify-content: space-between;
+  }
+  
+  /* Task Text */
+  #todo-list li span {
+    font-size: 16px;
+    flex: 1;
+  }
+  
+  .todo-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 15px;
+  }
+
+  /* Fallback for older browsers */
+  .todo-actions > *:not(:last-child) {
+    margin-right: 8px;
+  }
+  }
+  
+  /* Checkbox */
+  .todo-actions input[type="checkbox"] {
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Edit Task Button */
+  .edit-task-btn {
+    background-color: #fbc02d;
+    border: none;
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Delete Button */
+  .delete-task-btn {
+    background-color: #e53935;
+    border: none;
+    color: white;
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Bottom Action Buttons */
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .actions button {
+    padding: 10px 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  /* Consolidate check-all button styling */
+  #check-all-btn {
+    background-color: #1976d2;
+    color: white;
+  }
+
+  #check-all-btn:hover {
+    background-color: #115293;
+  }
+  
+  /* Hover effect for the check-all button */
+  #delete-all-btn {
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  #delete-all-btn:hover {
+    background-color: #115293;
+  }
+  
+  /* Hover effect for the delete-all button */
+  #delete-all-btn:hover {
+    background-color: #f06292;
+  }
